@@ -21,5 +21,35 @@
     </form>
 
 </body>
+<script>
+    const qs = (el) => document.querySelector(el);
 
+    const loginForm = qs('#login-form');
+    const loginSpan = qs('#login-form span');
+
+    loginForm?.addEventListener('submit', e => {
+        e.preventDefault();
+
+        const username = qs('#login-username').value;
+        const password = qs('#login-password').value;
+
+        fetch('/login', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ username, password })
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (data.message) {
+                loginSpan.innerText = data.message;
+                loginSpan.style.color = "green";
+                // Aquí podrías redirigir al dashboard
+                // window.location.href = "/dashboard";
+            } else {
+                loginSpan.innerText = data.error || "Error al iniciar sesión";
+                loginSpan.style.color = "red";
+            }
+        });
+    });
+</script>
 </html>
