@@ -21,8 +21,8 @@ app.get('/register', (req, res) => {
     res.render('register');
 });
 
-// Ruta de registro (simulada)
-app.post('/register', (req, res) => {
+// Ruta de registro falta por revisar
+app.post('/login', (req, res) => {
     const { username, password } = req.body;
 
     if (!username || !password) {
@@ -36,12 +36,14 @@ app.post('/register', (req, res) => {
 });
 
 // Ruta de login (simulada)
-app.post('/login', async(req, res) => {
+app.post('/register', async(req, res) => {
     const { username, password } = req.body;
     console.log(req.body)
-    if (!username || !password) {
+   
+   /* if (!username || !password) {
         return res.status(400).json({ error: "Faltan datos" });
     }
+    */
     try{
         const id= await UserRepository.create({username, password});
         res.send({id})
