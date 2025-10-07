@@ -1,5 +1,5 @@
 import express from 'express';
-import { PORT } from './config.js';
+import { PORT, SECRET_JWT_KEY } from './config.js';
 
 const app = express();
 
@@ -14,7 +14,7 @@ app.set('views', './views');
 
 // Rutas
 app.get('/', (req, res) => {
-    res.render('login');
+    res.render('register'); //REGISTER O LOGIN
 });
 
 app.get('/register', (req, res) => {
