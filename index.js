@@ -36,18 +36,17 @@ app.post('/register', (req, res) => {
 });
 
 // Ruta de login (simulada)
-app.post('/login', (req, res) => {
+app.post('/login', async(req, res) => {
     const { username, password } = req.body;
-
+    console.log(req.body)
     if (!username || !password) {
         return res.status(400).json({ error: "Faltan datos" });
     }
-
-    // Simulamos validación:
-    if (username === "admin" && password === "1234") {
-        return res.status(200).json({ message: "Login correcto" });
-    } else {
-        return res.status(401).json({ error: "Usuario o contraseña incorrectos" });
+    try{
+        const id= await UserRepository.create({username, password});
+        res.send({id})
+    }catch(error){
+        res.status(400).send(error.message);
     }
 });
 
