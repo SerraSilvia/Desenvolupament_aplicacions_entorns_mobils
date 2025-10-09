@@ -19,19 +19,28 @@ export class UserRepository {
         const user= User.findOne({username});
         if(user) throw new Error('username already exists');
         const id = crypto.randomUUID();
-        const hashedPassword = await bycript.hash(password, SALT_ROUNDS);
+        const hashedPassword = await bcrypt.hash(password, SALT_ROUNDS);
 
-        User.create({
+        const newUser = {
             _id:id,
             username,
             password: hashedPassword,
 
-        }).save();
-        return id;
+        };
+
+        User.create(newUser).save();
+        return newUser;
     }
 
     static async login({username, password}){
+        Validation.username(username);
+        Validation.password(password);
 
+        const user = User.findOne({ username });
+
+        if(!user) throw new Error('usuario o contraseña incorrecta');
+
+        return user;
     }
 }
 
@@ -46,7 +55,5 @@ class Validation {
     static password(password) {
         if (typeof password != 'string') throw new Error('sdfjkl must be a string');
         if (password.length < 6) throw new Error('password superior a 5 caracteres');
-
-
     }
 }

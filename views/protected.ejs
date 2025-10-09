@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Protected vista</title>
+  </head>
+  <body>
+    <h1>Protected vista</h1>
+
+    <div class="form-container">
+      <h2>Hola <%=username%>!</h2>
+      <p>Estas en el panel de admin</p>
+      <button id="close-session">Cerrar sesión</button>
+    </div>
+
+    <script defer>
+        const closeSessionBtn = document.getElementById("close-session");
+    
+        closeSessionBtn?.addEventListener("click", () => {
+            window.location.href = "/login";
+        });
+    </script>
+  </body>
+</html>

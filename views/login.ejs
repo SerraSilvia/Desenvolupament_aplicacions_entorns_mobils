@@ -20,6 +20,10 @@
         <span>&nbsp;</span>
     </form>
 
+    <ul>
+        <li><a href="/register">Registrarse</a></li>
+    </ul>
+
 </body>
 <script>
     const qs = (el) => document.querySelector(el);
@@ -43,8 +47,9 @@
             if (data.message) {
                 loginSpan.innerText = data.message;
                 loginSpan.style.color = "green";
-                // Aquí podrías redirigir al dashboard
-                // window.location.href = "/dashboard";
+                setTimeout(() => {
+                    window.location.href = `/protected?username=${encodeURIComponent(data.user.username)}`;
+                }, 1000);
             } else {
                 loginSpan.innerText = data.error || "Error al iniciar sesión";
                 loginSpan.style.color = "red";
