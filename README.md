@@ -9,8 +9,16 @@ Comandes a seguir per preparar el nostre entorn de desenvolupament:
 - npm i body-parse 
 - npm i db-local 
 - npm i jsonwebtoken 
-- npm i cookie-parser 
+- npm i cookie-parser
+- npm i bcryptjs
 - npm run dev
+
+- agefir en el package.json:
+"type": "module",  <- aquesta línia
+  "scripts": {
+    "dev": "nodemon index.js",  <- aquesta línia
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
 
 ### Aprenem a crear un servidor web amb Node.js emprant:
 
