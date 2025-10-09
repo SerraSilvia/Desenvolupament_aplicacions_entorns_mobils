@@ -23,5 +23,5 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "Comandes a seguir per preparar el nostre entorn de desenvolupament: - npm init -y  - npm i  - npm i express  - npm i ejs  - npm i nodemon -D  - npm i body-parse  - npm i db-local  - npm i jsonwebtoken  - npm i cookie-parser  - npm run dev"
 }

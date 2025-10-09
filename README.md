@@ -10,7 +10,17 @@ Comandes a seguir per preparar el nostre entorn de desenvolupament:
 - npm i db-local 
 - npm i jsonwebtoken 
 - npm i cookie-parser 
+- npm i crypto
+- npm i bcryptjs
 - npm run dev
+
+* afegir en package.json:
+"scripts": {
+    "dev": "nodemon index.js", // }
+    
+    sota del main: 
+    "main": "index.js",
+    "type": "module",
 
 ### Aprenem a crear un servidor web amb Node.js emprant:
 
