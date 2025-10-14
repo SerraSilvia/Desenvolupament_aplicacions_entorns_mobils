@@ -5,7 +5,7 @@ Comandes a seguir per preparar el nostre entorn de desenvolupament:
 - npm i 
 - npm i express 
 - npm i ejs 
-- npm i nodemon -D 
+- npm i nodemon -D -> és el que permet npm run dev
 - npm i body-parse 
 - npm i db-local 
 - npm i jsonwebtoken 
