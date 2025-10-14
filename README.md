@@ -12,7 +12,13 @@ Comandes a seguir per preparar el nostre entorn de desenvolupament:
 - npm i cookie-parser 
 - npm i crypto
 - npm i bcryptjs
-- npm run dev
+- npm run dev o si tenim un arxiu en scripts,
+-   "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  - node server.js
+
 
 * afegir en package.json:
 "scripts": {
